@@ -1,0 +1,416 @@
+//main: ../main.scss
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the product-tabs component.
+// -----------------------------------------------------------------------------
+
+.product-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-shadow: 0 2px 20px 10px rgba(0,0,0,.08);
+
+    .nav-tabs {
+        width: 100%;
+        border: none;
+
+        .nav-item {
+            position: relative;
+            width: 100%;
+            max-width: 25%;
+
+            &:not(:last-child) {
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 1px;
+                    height: 100%;
+                    background-color: #fff;
+                }
+            }
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            font-family: $font-gotham-bold;
+            font-size: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            background-color: #96302f;
+            border: none;
+            border-radius: 0;
+        }
+
+        .active {
+            color: #96302f;
+            background-color: #fff;
+        }
+    }
+
+    .tab-content {
+        width: 100%;
+        padding: 30px;
+
+        h1 {
+            font-size: 32px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        h3 {
+            font-size: 26px;
+        }
+
+        h4 {
+            font-size: 24px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        h6 {
+            font-size: 18px;
+        }
+
+        strong, b {
+            font-weight: 700;
+        }
+
+        a {
+            color: #96302f;
+            text-decoration: none;
+        }
+
+        .title {
+            display: none;
+        }
+
+        p, ul, ol, th, td {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        p {
+            &.small {
+                font-size: 12px;
+            }
+        }
+
+        ul, ol {
+            padding-left: 40px;
+        }
+
+        ul {
+            list-style: square;
+
+            ul {
+                list-style: none;
+
+                li {
+                    position: relative;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 11px;
+                        left: -18px;
+                        width: 2px;
+                        height: 4px;
+                        background-color: $text-color;
+                        transform: rotate(-45deg);
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 7px;
+                        left: -13px;
+                        width: 2px;
+                        height: 10px;
+                        background-color: $text-color;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #ddd;
+
+            tr:nth-child(odd) {
+                background-color: #eee;
+            }
+
+            tr:nth-child(even) {
+                background-color: #fcfcfc;
+            }
+
+            th {
+                font-weight: 700;
+            }
+
+            th, td {
+                padding: 8px 15px;
+                vertical-align: middle;
+            }
+
+            &.table-2 {
+                th, td {
+                    width: 50%;
+                }
+            }
+
+            &.table-3 {
+                th, td {
+                    width: 33.33%;
+                }
+            }
+
+            &.table-4 {
+                th, td {
+                    width: 25%;
+                }
+            }
+
+            &.table-5 {
+                th, td {
+                    width: 20%;
+                }
+            }
+
+            &.table-6 {
+                th, td {
+                    width: 16.67%;
+                }
+            }
+
+            &.center-text {
+                th, td {
+                    text-align: center;
+                }
+            }
+
+            tr {
+                th:not(:last-child),
+                td:not(:last-child) {
+                    border-right: 1px solid #ddd;
+                }
+            }
+        }
+        
+        .text-content {
+            h1, h2, h3, h4, h5, h6 {
+                font-family: $font-gotham-bold;
+            }
+        }
+
+        .text-image {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .text {
+                width: 65%;
+                padding-right: 15px;
+                margin-bottom: 20px;
+            }
+
+            .image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35%;
+                padding-left: 15px;
+                margin-bottom: 20px;
+
+                .image-holder {
+                    padding: 5px 25px;
+                }
+
+                img {
+                    margin-left: auto;
+                    margin-right: auto;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .inverted {
+            .image {
+                order: 1;
+                padding-left: 0;
+                padding-right: 15px;
+            }
+            
+            .text {
+                order: 2;
+                padding-left: 15px;
+                padding-right: 0;
+            }
+        }
+
+        .table-content {
+            height: auto;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .nav-tabs {
+            button {
+                font-size: 18px;
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        .nav-tabs {
+            button {
+                padding: 15px 10px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        box-shadow: none;
+
+        .nav-tabs {
+            display: none;
+        }
+
+        .tab-content {
+            padding: 0;
+
+            p, ul, ol, th, td {
+                font-size: 14px;
+            }
+
+            ul, ol {
+                padding-left: 25px;
+
+                ul, ol {
+                    padding-left: 30px;
+                }
+            }
+
+            th, td {
+                min-width: 104px;
+            }
+
+            table.table {
+                &-3,
+                &-4,
+                &-5,
+                &-6 {
+                    th, td {
+                        min-width: 140px;
+                    }
+                }
+            }
+
+            .tab-pane {
+                display: block;
+                margin-bottom: 20px;
+                opacity: 1;
+                box-shadow: 0 2px 20px 10px rgba(0,0,0,.08);
+                transition: none;
+
+                &.show.active {
+                    .title.active {
+                        &:before {
+                            transform: rotate(45deg);
+                        }
+                        &:after {
+                            transform: rotate(-45deg);
+                        }
+                    }
+
+                    &.show-content {
+                        .content {
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            .title {
+                position: relative;
+                display: flex;
+
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    width: 4px;
+                    height: 15px;
+                    margin: auto;
+                    background-color: #fff;
+                    pointer-events: none;
+                }
+
+                &:before {
+                    right: 28px;
+                    transform: rotate(-45deg);
+                }
+
+                &:after {
+                    right: 20px;
+                    transform: rotate(45deg);
+                }
+            }
+
+            .tab-title-mobile {
+                display: flex;
+                width: 100%;
+                padding: 15px;
+                font-family: $font-gotham-bold;
+                font-size: 16px;
+                color: #fff;
+                text-transform: uppercase;
+                background-color: #96302f;
+            }
+
+            .content {
+                display: none;
+                padding: 25px 20px;
+            }
+
+            .text-image {
+                .text,
+                .image {
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .image img {
+                    max-width: 80%;
+                }
+
+                .image-holder {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    max-width: 320px;
+                }
+            }
+
+            .table-content {
+                overflow-x: auto;
+            }
+        }
+    }
+}

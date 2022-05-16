@@ -1,0 +1,500 @@
+//main: ../main.scss
+
+// -------------------------------------------------------------------------------------------
+// This file contains styles that are specific to the stockists page.
+// -------------------------------------------------------------------------------------------
+
+.page-stockists {
+    .hero {
+        padding-bottom: 0;
+
+        .search-form {
+            width: fit-content;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            position: relative;
+            display: flex;
+            padding: 15px;
+            background-color: #fff;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                display: block;
+                width: 12px;
+            }
+
+            &:before {
+                left: -10px;
+                background: url(../assets/images/torn-left.png) repeat-y right;
+            }
+
+            &:after {
+                right: -12px;
+                background: url(../assets/images/torn-right.png) repeat-y left;
+            }
+        }
+
+        .postcode {
+            width: 265px;
+            height: 45px;
+            padding: 8px 15px;
+            font-family: $font-gotham-book;
+            font-size: 16px;
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 0;
+            outline: none;
+            transition: .35s all ease-in-out;
+
+            &:focus {
+                border-radius: 0;
+                border-color: $text-color;
+                outline: none;
+            }
+        }
+
+        .button-holder {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 1px;
+                margin: auto;
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-left: 16px solid #fff;
+                pointer-events: none;
+            }
+        }
+
+        .btn-search {
+            display: flex;
+            width: 45px;
+            height: 45px;
+            background-color: #96302F;
+            border: 0;
+            border-radius: 8px;
+            outline: none;
+            transition: .35s all ease-in-out;
+
+            &:hover {
+                background-color: #000;
+            }
+        }
+    }
+
+    .content {
+        padding: 50px 0;
+
+        .wrapper {
+            position: relative;
+            top: -70px;
+            padding: 90px;
+            margin-bottom: -70px;
+            background-repeat: repeat-y;
+            background-size: 100%;
+        }
+
+        * + h1, * + h2, * + h3, * + h4, * + h5, * + h6 {
+            padding-top: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.4;
+            font-family: $font-gotham-bold;
+            text-transform: none;
+        }
+
+        h1 {
+            font-size: 36px;
+
+            &.title {
+                position: relative;
+                width: fit-content;
+                padding-bottom: 10px;
+                margin-bottom: 30px !important;
+                text-transform: uppercase;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    z-index: 2;
+                    width: 100%;
+                    border-bottom: 2px dashed #ccc;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+        h4 {
+            font-size: 24px;
+        }
+
+        h5 {
+            font-size: 22px;
+        }
+
+        h6 {
+            font-size: 20px;
+        }
+
+        p, ul, ol, label {
+            font-size: 18px;
+            line-height: 1.6;
+            color: $text-color;
+        }
+
+        strong, b {
+            font-family: $font-gotham-bold;
+        }
+
+        ul {
+            list-style: square;
+        }
+
+        ul, ol {
+            padding-left: 40px;
+        }
+
+        a {
+            color: #96302f;
+
+            &:hover {
+                color: #96302f;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .search-text {
+        .text-content {
+            position: relative;
+            width: fit-content;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                display: block;
+                width: 100%;
+                height: 12px;
+            }
+
+            &:before {
+                bottom: 100%;
+                background: url(../assets/images/torn-top.png) repeat-x bottom;
+            }
+
+            &:after {
+                top: 100%;
+                background: url(../assets/images/torn-bottom.png) repeat-x top;
+            }
+        }
+
+        p {
+            position: relative;
+            width: fit-content;
+            padding: 20px 15px;
+            background-color: #fff;
+
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                display: block;
+                width: 12px;
+            }
+
+            &:before {
+                left: -10px;
+                background: url(../assets/images/torn-left.png) repeat-y right;
+            }
+
+            &:after {
+                right: -12px;
+                background: url(../assets/images/torn-right.png) repeat-y left;
+            }
+        }
+    }
+
+    .search-results {
+        .item {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px 25px;
+            background: #fff;
+            box-shadow: 0 2px 5px 1px rgba(0,0,0,.1);
+            transition: .35s all ease-in-out;
+
+            &:hover {
+                box-shadow: 0 5px 10px 3px rgba(0,0,0,.3);
+            }
+
+            & + .item {
+                margin-top: 30px;
+            }
+        }
+
+        .distance {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px 8px 0;
+            height: 40px;
+            font-family: $font-gotham-bold;
+            font-size: 16px;
+            color: #fff;
+            background-color: #96302f;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -25px;
+                width: 25px;
+                height: 40px;
+                background-color: #96302F;
+            }
+        }
+
+        .info {
+            padding: 0 50px 0 20px;
+        }
+
+        .name {
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact {
+            padding: 0 25px 0 50px;
+            margin-left: auto;
+            border-left: 1px dashed #999;
+        }
+
+        .number {
+            font-family: $font-gotham-bold;
+            line-height: 1.4;
+            font-size: 28px;
+            color: $text-color;
+            text-decoration: none;
+            outline: none;
+
+            &:hover {
+                color: #96302F;
+                text-decoration: none;
+            }
+        }
+    }
+
+    @media (max-width: 1399px) {
+        .content .wrapper {
+            top: -60px;
+            margin-bottom: -60px;
+        }
+    }
+
+    @media (max-width: 1199px) {
+        .content {
+            .wrapper {
+                top: 0;
+                margin-bottom: 0;
+                padding: 50px;
+            }
+    
+            .holder {
+                padding: 50px;
+    
+                h1 {
+                    font-size: 32px;
+                }
+        
+                h2 {
+                    font-size: 28px;
+                }
+        
+                h3 {
+                    font-size: 24px;
+                }
+        
+                h4 {
+                    font-size: 22px;
+                }
+        
+                h5 {
+                    font-size: 20px;
+                }
+        
+                h6 {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .search-results {
+            .info {
+                padding-right: 40px;
+            }
+
+            .contact {
+                padding: 0 15px 0 40px;
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        .hero {
+            .postcode {
+                width: 250px;
+                font-size: 15px;
+            }
+        }
+
+        .content {
+            .wrapper {
+                padding: 30px 25px;
+            }
+
+            * + h1, * + h2, * + h3, * + h4, * + h5, * + h6 {
+                padding-top: 15px;
+            }
+
+            ul, ol {
+                padding-left: 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+    
+            h2 {
+                font-size: 26px;
+            }
+    
+            h3 {
+                font-size: 24px;
+            }
+    
+            h4 {
+                font-size: 20px;
+            }
+    
+            h5 {
+                font-size: 18px;
+            }
+    
+            h6 {
+                font-size: 16px;
+            }
+    
+            p, ul, ol, label {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+        }
+
+        .search-text p {
+            padding: 15px;
+        }
+
+        .search-results {
+            .info {
+                padding-right: 25px;
+            }
+            
+            .contact {
+                padding: 0 0 0 25px;
+            }
+
+            .number {
+                font-size: 24px;
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        .content {
+            padding: 30px 0;
+        }
+
+        .search-results {
+            .item {
+                padding: 20px;
+
+                & + .item {
+                    margin-top: 20px;
+                }
+            }
+
+            .distance {
+                padding: 8px 10px;
+
+                &:before {
+                    top: -20px;
+                    left: 0;
+                    width: 100%;
+                    height: 20px;
+                }
+            }
+
+            .info {
+                width: 100%;
+                padding: 20px 0 15px;
+            }
+
+            .name {
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            .contact {
+                width: 100%;
+                padding: 20px 0 0;
+                text-align: center;
+                border-top: 1px dashed #999;
+                border-left: 0;
+            }
+        }
+    }
+
+    @media (max-width: 575px) {
+        .hero {
+            .postcode {
+                width: 200px;
+                padding: 5px 8px;
+                font-size: 12.5px;
+            }
+        }
+    }
+}
