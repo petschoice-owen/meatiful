@@ -10,8 +10,17 @@ var windowScrolled = () => {
         }
     }
 
+    function checkWPadmin() {
+        if ($("#wpadminbar").length) {
+            var wpAdminBar = $("#wpadminbar").height();
+
+            $(".top-navigation").css("top",wpAdminBar+"px");
+        }
+    }
+
     $(document).ready(function() {
         checkScroll();
+        checkWPadmin();
         $(window).scroll(checkScroll);
     });
 }
@@ -162,6 +171,15 @@ var popUp = () => {
     }
 }
 
+// contact form 7 adjustments
+var contactForm7 = () => {
+    if ($(".wpcf7-spinner").length) {
+        $(".wpcf7-spinner").each(function() {
+            $(this).remove();
+        });
+    }
+}
+
 // for preview purposes - stockists page
 var stockists = () => {
     if ($(".page-stockists").length) {
@@ -184,6 +202,7 @@ $(document).ready(function() {
     parallaxMargin();
     productQuantity();
     productTabs();
+    contactForm7();
 });
   
 $(window).resize(function() {
@@ -195,5 +214,6 @@ window.onload = function() {
     masonry();
     stockists();
     popUp();
+    contactForm7();
 }
   

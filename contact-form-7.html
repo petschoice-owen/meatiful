@@ -1,0 +1,47 @@
+<div class="columns">
+    <div class="column">
+        <label for="firstname">First Name <span class="required-asterisk">*</span></label>
+        [text* firstname id:firstname placeholder "Enter your first name"]
+    </div>
+    <div class="column">
+        <label for="surname">Surname <span class="required-asterisk">*</span></label>
+        [text* surname id:surname placeholder "Enter your surname"]
+    </div>
+</div>
+<div class="columns">
+    <div class="column">
+        <label for="email">Email <span class="required-asterisk">*</span></label>
+        [email* email id:email placeholder "Enter your email"]
+    </div>
+    <div class="column">
+        <label for="postcode">Postcode <span class="required-asterisk">*</span></label>
+        [text* postcode id:postcode placeholder "Enter your postcode"]
+    </div>
+</div>
+<div class="columns">
+    <div class="column">
+        <label for="how">How did you hear about us? <span class="required-asterisk">*</span></label>
+        <div class="field-select">
+            [select* connection id:dropdown1 include_blank "Search Engine" "UK Trade Exhibition" "Non-UK Trade Exhibition" "Press" "Direct Mail" "Consumer Show" "Recommendation" "Other"]
+        </div>
+    </div>
+    <div class="column">
+        <label for="enquiry">Nature of enquiry <span class="required-asterisk">*</span></label>
+        <div class="field-select">
+            [select* nature id:dropdown2 include_blank "Become a stockist" "General Enquiry" "Feedback" "Delivery/Order Enquiry"]
+        </div>
+    </div>
+</div>
+<div class="columns">
+    <div class="column column-full">
+        <label for="message">Message <span class="required-asterisk">*</span></label>
+        [textarea* message id:message placeholder "Enter your message"]
+    </div>
+</div>
+<div class="columns">
+    <div class="column column-right">
+        <div class="field-submit">
+            [submit id:submitform "Send Message"]
+        </div>
+    </div>
+</div>

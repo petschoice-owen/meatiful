@@ -1,12 +1,4 @@
-## Prerequisites
-* [Install `npm` package manager](https://www.npmjs.com/package/npm-install)
-* [Install `gulp` toolkit](https://www.npmjs.com/package/gulp-install)
-
-## Usage
-* Install dependencies with `npm install`
-* Run localhost environment with `npm run dev`
-
-## Project Name: Meatiful - WordPress Theme
+## WordPress Theme: Meatiful
 * [Home - Static](https://petschoice-owen.github.io/meatiful-static/index.html)
 * [Our Values - Static](https://petschoice-owen.github.io/meatiful-static/our-values.html)
 * [Varieties - Static](https://petschoice-owen.github.io/meatiful-static/varieties.html)
