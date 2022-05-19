@@ -21,7 +21,7 @@
                 'post_status' => 'publish',
                 'posts_per_page' => -1, 
                 'orderby' => 'date', 
-                'order' => 'ASC',
+                'order' => 'DESC',
             );
             $news = new WP_Query( $args ); ?>
             <section class="content news" style="background-image: url(<?php the_field('background_image_content_news', 'option'); ?>);">
