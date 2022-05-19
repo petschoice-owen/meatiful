@@ -51,5 +51,6 @@
                 </div>
             </section>
 		<?php endif; ?>
+		<?php include 'product-range.php'; ?>
     </main>
 <?php get_footer(); ?>
