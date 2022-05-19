@@ -50,7 +50,7 @@
         </nav>
     </div>
     <div class="buy-online">
-        <div class="content">
+        <div class="buy-online-content">
             <?php
                 if( have_rows('header_label', 'option') ):
                 while( have_rows('header_label', 'option') ) : the_row();
