@@ -141,38 +141,6 @@ add_action('acf/input/admin_footer', 'PREFIX_apply_acf_modifications');
 
 
 /*-----------------------------------------------------------------------------------*/
-/* Advanced Custom Fields - Add Theme Settings
-/*-----------------------------------------------------------------------------------*/
-if ( function_exists('acf_add_options_page') ) {
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme General Settings',
-		'menu_title'	=> 'Theme Settings',
-		'menu_slug' 	=> 'general-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Header',
-		'menu_title'	=> 'Header Section',
-		'parent_slug'	=> 'general-settings',
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Theme Footer',
-		'menu_title'	=> 'Footer Section',
-		'parent_slug'	=> 'general-settings',
-	));
-	
-	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Social Media',
-		'menu_title'	=> 'Social Media',
-		'parent_slug'	=> 'general-settings',
-	));
-}
-
-
-/*-----------------------------------------------------------------------------------*/
 /* Register Custom Post Type News
 /*-----------------------------------------------------------------------------------*/
 function create_news_cpt() {
@@ -210,7 +178,7 @@ function create_news_cpt() {
 		'description' => __( '', 'textdomain' ),
 		'labels' => $labels,
 		'menu_icon' => 'dashicons-format-aside',
-		'supports' => array('title', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'),
+		'supports' => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields'),
 		'taxonomies' => array(),
 		'public' => true,
 		'show_ui' => true,
@@ -229,3 +197,47 @@ function create_news_cpt() {
 	register_post_type( 'news', $args );
 }
 add_action( 'init', 'create_news_cpt', 0 );
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Advanced Custom Fields - Add Theme Settings
+/*-----------------------------------------------------------------------------------*/
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Header',
+		'menu_title'	=> 'Header Section',
+		'parent_slug'	=> 'general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer',
+		'menu_title'	=> 'Footer Section',
+		'parent_slug'	=> 'general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Social Media',
+		'menu_title'	=> 'Social Media',
+		'parent_slug'	=> 'general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'News Page',
+		'menu_title'	=> 'News Page',
+		'parent_slug'	=> 'general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Single News - Post',
+		'menu_title'	=> 'Single News - Post',
+		'parent_slug'	=> 'general-settings',
+	));
+}
