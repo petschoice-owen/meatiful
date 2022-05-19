@@ -21,7 +21,7 @@
 					<div class="container">
 						<div class="wrapper" style="background-image: url(<?php the_field('background_image_content_news_single_content', 'option'); ?>);">
 							<div class="holder">
-								<h1 class="title"><?php the_title(); ?>Weird Things Dogs Eat And The Reasons Why</h1>
+								<h1 class="title"><?php the_title(); ?></h1>
 								<?php $featured_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full' ); ?>
 								<div class="featured-image">
 									<div class="image-holder">
