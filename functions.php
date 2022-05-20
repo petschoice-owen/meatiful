@@ -240,6 +240,12 @@ if ( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Single News - Post',
 		'parent_slug'	=> 'general-settings',
 	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> '404 Page',
+		'menu_title'	=> '404 Page',
+		'parent_slug'	=> 'general-settings',
+	));
 }
 
 
