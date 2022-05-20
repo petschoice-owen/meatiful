@@ -91,54 +91,39 @@
         <?php include 'product-range.php'; ?>
         <section class="news" style="background-image: url(<?php the_field('background_image_news'); ?>);">
             <div class="container">
-                <h2 class="heading heading-center"><?php the_field('heading_news'); ?></h2>
+                <h2 class="heading heading-center text-shadow-white"><?php the_field('heading_news'); ?></h2>
                 <div class="row">
-                    <!-- dynamic news -->
-                    <div class="col-md-4 column">
-                        <div class="item">
-                            <a href="#" class="item-link">
-                                <div class="image-holder">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-news-1.jpg" alt="" />
+                    <?php if ( have_posts() ) :
+                        $args = array(
+                            'post_type' => 'news',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 3, 
+                            'orderby' => 'date', 
+                            'order' => 'DESC',
+                        );
+                        $news = new WP_Query( $args ); ?>
+                        <?php while ( $news->have_posts() ) : $news->the_post(); ?>
+                            <?php $featured_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full' ); ?>
+                            <div class="col-md-4 column">
+                                <div class="item">
+                                    <a href="<?php the_permalink(); ?>" class="item-link">
+                                        <div class="image-holder">
+                                            <img src="<?php echo $featured_img[0]; ?>" alt="<?php the_title(); ?>" />
+                                        </div>
+                                        <div class="content-holder">
+                                            <h4 class="title"><?php the_title(); ?></h4>
+                                            <div class="button-holder">
+                                                <span class="btn-brown arrow-right">Read More</span>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="content-holder">
-                                    <h4 class="title">Weird things dogs eat and the reasons why</h4>
-                                    <div class="button-holder">
-                                        <span class="btn-brown arrow-right">Read More</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 column">
-                        <div class="item">
-                            <a href="#" class="item-link">
-                                <div class="image-holder">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-news-2.jpg" alt="" />
-                                </div>
-                                <div class="content-holder">
-                                    <h4 class="title">What vitamins and minerals do dogs need to stay healthy? </h4>
-                                    <div class="button-holder">
-                                        <span class="btn-brown arrow-right">Read More</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 column">
-                        <div class="item">
-                            <a href="#" class="item-link">
-                                <div class="image-holder">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-news-3.jpg" alt="" />
-                                </div>
-                                <div class="content-holder">
-                                    <h4 class="title">What are the most popular crossbreeds?</h4>
-                                    <div class="button-holder">
-                                        <span class="btn-brown arrow-right">Read More</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                            </div>
+                        <?php endwhile;
+                        wp_reset_postdata(); ?>
+                    <?php else : ?>	
+                        <h2>There are no post about that yet</h2>
+                    <?php endif; wp_reset_query(); ?>
                 </div>
                 <div class="button-holder">
                     <a href="<?php the_field('button_link_news'); ?>" class="btn-brown arrow-right"><?php the_field('button_text_news'); ?></a>
