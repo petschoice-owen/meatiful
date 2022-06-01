@@ -21,8 +21,8 @@
                 <div class="wrapper-search">
                     <form action="" id="" class="search-form">
                         <div class="form-group">
-                            <input type="text" class="postcode" id="search_input" placeholder="Enter postcode or town" name="destination" value="">
-                            <div class="button-holder">
+                            <input type="text" class="postcode postcode-full" id="search_input" placeholder="Enter postcode or town" name="destination" value="">
+                            <div class="button-holder d-none">
                                 <!-- <input type="text" id="search_stockist" value="" class="btn-search"> -->
                                 <a href="#search_input" id="search_stockist" class="btn-search"></a>
                             </div>
@@ -45,7 +45,7 @@
                                 'post_type' => 'stockists',
                                 'post_status' => 'publish',
                                 'posts_per_page' => -1, 
-                                'orderby' => 'title', 
+                                'orderby' => 'date', 
                                 'order' => 'DESC',
                             );
                             $news = new WP_Query( $args ); ?>
@@ -65,8 +65,8 @@
                                     <div class="information">
                                         <h3 class="name"><?php the_title(); ?></h3>
                                         <p class="address">
-                                            <?php echo $street_address; ?> <?php echo $address_2; ?>
-                                            <?php echo $town; ?> <?php echo $county; ?><br />
+                                            <?php echo $street_address; ?>, <?php if( get_field('address_2') ): ?><?php echo $address_2; ?>,<?php endif; ?><br />
+                                                <?php if( get_field('town') ): ?><?php echo $town; ?>,<?php endif; ?> <?php if( get_field('county') ): ?><?php echo $county; ?>,<?php endif; ?><br />
                                             <?php echo $postcode; ?>
                                         </p>
                                         <a href="https://www.google.com/maps/search/<?php echo $latitude; ?>,+<?php echo $longitude; ?>" class="map" target="_blank">View in Google Map</a>
