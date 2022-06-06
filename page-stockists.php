@@ -33,12 +33,12 @@
         </section>
         <section class="content" style="background-image: url(<?php the_field('background_image_content_stockists'); ?>);">
             <div class="container">
-                <div class="search-text d-none">
+                <div class="search-text" id="search_text">
                     <div class="text-content">
                         <p><strong><?php the_field('default_text_stockists'); ?></strong></p>
                     </div>
                 </div>
-                <div class="search-results">
+                <div class="search-results d-none" id="search_results">
                     <ul class="items" id="search_results_items">
                         <?php if ( have_posts() ) :
                             $args = array(
@@ -60,7 +60,6 @@
                                     $longitude = get_field('longitude');
                                 ?>
                                 <li class="item">
-                                    <!-- <?php $featured_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full' ); ?> -->
                                     <span class="title d-none"><?php the_title(); ?> <?php echo $town; ?> <?php echo $postcode; ?></span>
                                     <div class="information">
                                         <h3 class="name"><?php the_title(); ?></h3>
@@ -72,15 +71,9 @@
                                         <a href="https://www.google.com/maps/search/<?php echo $latitude; ?>,+<?php echo $longitude; ?>" class="map" target="_blank">View in Google Map</a>
                                     </div>
                                     <div class="contact">
-                                        <?php if( get_field('contact_number') ): ?>
-                                            <a href="#" class="number"><?php the_field('contact_number'); ?></a>
-                                        <?php endif; ?>
-                                        <?php if( get_field('email') ): ?>
-                                            <a href="mailto:<?php the_field('email'); ?>" class="email"><?php the_field('email'); ?></a>
-                                        <?php endif; ?>
-                                        <?php if( get_field('web_address') ): ?>
-                                            <a href="<?php the_field('web_address'); ?>" class="web-address"><?php the_field('web_address'); ?></a>
-                                        <?php endif; ?>
+                                        <?php if( get_field('contact_number') ): ?><a href="#" class="number"><?php the_field('contact_number'); ?></a><?php endif; ?>
+                                        <?php if( get_field('email') ): ?><a href="mailto:<?php the_field('email'); ?>" class="email"><?php the_field('email'); ?></a><?php endif; ?>
+                                        <?php if( get_field('web_address') ): ?><a href="<?php the_field('web_address'); ?>" class="web-address"><?php the_field('web_address'); ?></a><?php endif; ?>
                                     </div>
                                 </li>
                             <?php endwhile;
@@ -103,6 +96,11 @@
                             </section> -->
                         <?php endif; wp_reset_query(); ?>
                     </ul>
+                </div>
+                <div class="search-text search-results-none d-none" id="search_results_none">
+                    <div class="text-content">
+                        <p><strong>Sorry, please try a different postcode or town.</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
