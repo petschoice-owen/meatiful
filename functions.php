@@ -326,3 +326,12 @@ function manage_img_column($column_name, $post_id) {
     }
     return $column_name;
 }
+
+
+/*-----------------------------------------------------------------------------------*/
+/* WooCommerce - Single Product Page Customization
+/*-----------------------------------------------------------------------------------*/
+add_theme_support( 'woocommerce' );
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 25 );
