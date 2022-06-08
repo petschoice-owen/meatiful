@@ -335,3 +335,15 @@ add_theme_support( 'woocommerce' );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 25 );
+
+
+/*-----------------------------------------------------------------------------------*/
+/* WooCommerce - Remove "Choose an option" in dropdown menus
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'filter_dropdown_option_html', 12, 2 );
+function filter_dropdown_option_html( $html, $args ) {
+	$show_option_none_text = $args['show_option_none'] ? $args['show_option_none'] : __( 'Choose an option', 'woocommerce' );
+	$show_option_none_html = '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
+	$html = str_replace($show_option_none_html, '', $html);
+	return $html;
+}

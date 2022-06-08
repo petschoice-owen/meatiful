@@ -345,7 +345,7 @@ window.onload = function() {
     popUp();
     contactForm7();
     productWooCommerce();
-    removeDefaultOption();
+    // removeDefaultOption();
     productCustomPriceDefault();
     productCustomPriceDropdown();
     productForm();
