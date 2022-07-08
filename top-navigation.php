@@ -82,4 +82,11 @@
         </div>
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/torn-bottom.png" class="torn-bottom" alt="" >
     </div>
+    <div class="free-delivery">
+        <div class="free-delivery-content">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-truck.png" class="icon-truck" alt="" />
+            <p>free delivery over £35</p>
+        </div>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/torn-bottom.png" class="torn-bottom" alt="" />
+    </div>
 </div>
