@@ -2,6 +2,10 @@
     <div class="wrapper">
         <nav class="navbar navbar-expand-xl">
             <div class="container-fluid">
+                <div class="responsive-login">
+                    <a href="/my-account" class="user" title="Login"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-user.png" alt="" /></a>
+                    <a href="/cart" class="cart" title="Cart"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-cart.png" alt="" /></a>
+                </div>
                 <div class="logo-bg">
                     <img src="<?php the_field('header_logo_background', 'option'); ?>" alt="" >
                 </div>
@@ -26,7 +30,7 @@
                             while( have_rows('header_label', 'option') ) : the_row();
                                 $phone_number = get_sub_field('phone_number', 'option');
                                 ?>
-                                <a href="tel:+<?php echo $phone_number; ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-phone.png" alt=""></a>
+                                <a href="tel:+<?php echo $phone_number; ?>" class="phone-number"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-phone.png" alt=""></a>
                                 <?php
                             endwhile;
                             else :
@@ -51,15 +55,19 @@
     </div>
     <div class="buy-online">
         <div class="buy-online-content">
+            <div class="login">
+                <a href="/my-account" class="user" title="Login"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-user.png" alt="" /></a>
+                <a href="/cart" class="cart" title="Cart"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-cart.png" alt="" /></a>
+            </div>
             <?php
                 if( have_rows('header_label', 'option') ):
                 while( have_rows('header_label', 'option') ) : the_row();
-                    $button_text = get_sub_field('button_text', 'option');
-                    $button_link = get_sub_field('button_link', 'option');
+                    // $button_text = get_sub_field('button_text', 'option');
+                    // $button_link = get_sub_field('button_link', 'option');
                     $phone_number = get_sub_field('phone_number', 'option');
                     ?>
-                    <a href="<?php echo $button_link; ?>" class="btn-brown"><?php echo $button_text; ?></a>
-                    <a href="tel:+<?php echo $phone_number; ?>" class="dashed"><?php echo $phone_number; ?></a>
+                    <!-- <a href="<?php // echo $button_link; ?>" class="btn-brown"><?php // echo $button_text; ?></a> -->
+                    <a href="tel:+<?php echo $phone_number; ?>" class="dashed phone-number"><?php echo $phone_number; ?></a>
                     <?php
                 endwhile;
                 else :
