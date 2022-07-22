@@ -60,7 +60,7 @@
                                     $longitude = get_field('longitude');
                                 ?>
                                 <li class="item">
-                                    <span class="title d-none"><?php the_title(); ?> <?php echo $town; ?> <?php echo $postcode; ?></span>
+                                    <span class="title d-none"><?php the_title(); ?> <?php echo $town; ?> <?php echo $county; ?> <?php echo $postcode; ?></span>
                                     <div class="information">
                                         <h3 class="name"><?php the_title(); ?></h3>
                                         <p class="address">
