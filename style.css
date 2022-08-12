@@ -9,3 +9,9 @@ License:        GNU General Public License v3 or later
 License URI:    https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain:    meatiful
 */
+
+
+.cmplz-document summary .cmplz-category-header .cmplz-category-title,
+.cmplz-document summary .cmplz-category-header .cmplz-always-active {
+    margin-bottom: 0;
+}

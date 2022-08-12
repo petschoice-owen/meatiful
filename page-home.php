@@ -7,7 +7,7 @@
 <body <?php body_class(); ?>>
     <?php include 'top-navigation.php'; ?>
     <main class="page-home">
-        <section class="hero hero-parallax">
+        <!-- <section class="hero hero-parallax">
             <div class="custom-slider-wrapper">
                 <?php if( have_rows('slider_images') ): ?>
                         <div class="custom-slider">
@@ -17,7 +17,7 @@
                             <?php endwhile; ?>
                         </div>
                     <?php else :
-                endif; ?>                
+                endif; ?>
             </div>
             <div class="hero-background" style="background-image: url(<?php the_field('background_image_mobile_hero'); ?>);"></div>
             <div class="container">
@@ -28,6 +28,38 @@
                     <div class="button-holder">
                         <a href="<?php the_field('button_link_hero'); ?>" class="btn-brown arrow-right"><?php the_field('button_text_hero'); ?></a>
                     </div>
+                </div>
+            </div>
+        </section> -->
+        <section class="hero hero-parallax">
+            <div class="hero-background" style="background-image: url(<?php the_field('section_hero_background_mobile'); ?>);"></div>
+            <div class="custom-slider-wrapper">
+                <div class="custom-slider">
+                    <?php if( have_rows('section_hero_slider_item') ): ?>
+                        <?php while( have_rows('section_hero_slider_item') ) : the_row();
+                                $heading = get_sub_field('heading');
+                                $subheading = get_sub_field('subheading'); 
+                                $description = get_sub_field('description');
+                                $button_text = get_sub_field('button_text');
+                                $button_link = get_sub_field('button_link');
+                                $background_image = get_sub_field('background_image');?>
+
+                                <div class="slide-item slider-padding">
+                                    <div class="slide-item-background" style="background-image: url(<?php echo $background_image; ?>);"></div>
+                                    <div class="container">
+                                        <div class="wrapper">
+                                            <h1 class="heading"><?php echo $heading; ?></h1>
+                                            <h3 class="subheading"><?php echo $subheading; ?></h3>
+                                            <p><?php echo $description; ?></p>
+                                            <div class="button-holder">
+                                                <a href="<?php echo $button_link; ?>" class="btn-brown arrow-right"><?php echo $button_text; ?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                        <?php else :
+                    endif; ?>
                 </div>
             </div>
         </section>
