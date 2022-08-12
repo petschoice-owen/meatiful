@@ -4,7 +4,10 @@
             <div class="container-fluid">
                 <div class="responsive-login">
                     <a href="/my-account" class="user" title="Login"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-user.png" alt="" /></a>
-                    <a href="/cart" class="cart" title="Cart"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-cart.png" alt="" /></a>
+                    <div class="cart-holder">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-cart.png" class="icon-cart" alt="" />
+                        <?php echo do_shortcode("[woo_cart_but]"); ?>
+                    </div>
                 </div>
                 <div class="logo-bg">
                     <img src="<?php the_field('header_logo_background', 'option'); ?>" alt="" >
@@ -57,7 +60,10 @@
         <div class="buy-online-content">
             <div class="login">
                 <a href="/my-account" class="user" title="Login"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-user.png" alt="" /></a>
-                <a href="/cart" class="cart" title="Cart"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-cart.png" alt="" /></a>
+                <div class="cart-holder">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-cart-black.png" class="icon-cart" alt="" />
+                    <?php echo do_shortcode("[woo_cart_but]"); ?>
+                </div>
             </div>
             <?php
                 if( have_rows('header_label', 'option') ):

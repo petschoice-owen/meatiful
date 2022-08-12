@@ -342,6 +342,40 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 )
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 25 );
 
+// Create Shortcode for WooCommerce Cart Menu Item
+add_shortcode ('woo_cart_but', 'woo_cart_but' );
+function woo_cart_but() {
+	ob_start();
+	$cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
+	$cart_url = wc_get_cart_url();  // Set Cart URL ?>
+
+	<a class="menu-item cart-contents cart" href="<?php echo $cart_url; ?>" title="My Basket">
+		<?php if ( $cart_count > 0 ) { ?>
+			<span class="cart-contents-count"><?php echo $cart_count; ?></span>
+		<?php } ?>
+	</a>
+	<?php  
+    return ob_get_clean();
+}
+
+// Add AJAX Shortcode when cart contents update
+add_filter( 'woocommerce_add_to_cart_fragments', 'woo_cart_but_count' );
+function woo_cart_but_count( $fragments ) {
+    ob_start();
+    
+    $cart_count = WC()->cart->cart_contents_count;
+    $cart_url = wc_get_cart_url(); ?>
+
+    <a class="cart-contents menu-item cart" href="<?php echo $cart_url; ?>" title="My Basket">
+		<?php if ( $cart_count > 0 ) { ?>
+			<span class="cart-contents-count"><?php echo $cart_count; ?></span>
+		<?php } ?>
+	</a>
+    <?php
+    $fragments['a.cart-contents'] = ob_get_clean();
+    return $fragments;
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /* WooCommerce - Remove "Choose an option" in dropdown menus
@@ -353,7 +387,6 @@ function filter_dropdown_option_html( $html, $args ) {
 	$html = str_replace($show_option_none_html, '', $html);
 	return $html;
 }
-
 
 
 /*-----------------------------------------------------------------------------------*/
