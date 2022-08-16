@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <?php global $wp;
+    $current_url = home_url(add_query_arg(array(), $wp->request)); ?>
+    <link rel="canonical" href="<?php echo $current_url; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Shop Meatiful sausages here in three delicious flavours. Our single source protein sausages are an excellent raw dog food alternative!" />
     <meta name="author" content="Pets Choice" />

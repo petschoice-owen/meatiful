@@ -45,7 +45,7 @@
                                 $social_media_image = get_sub_field('social_media_image', 'option');
                                 $social_media_link = get_sub_field('social_media_link', 'option');
                                 ?>
-                                <a href="<?php echo $social_media_link; ?>"><img src="<?php echo $social_media_image; ?>" alt=""></a>
+                                <a href="<?php echo $social_media_link; ?>" target="_blank"><img src="<?php echo $social_media_image; ?>" alt=""></a>
                                 <?php
                             endwhile;
                             else :
@@ -68,11 +68,8 @@
             <?php
                 if( have_rows('header_label', 'option') ):
                 while( have_rows('header_label', 'option') ) : the_row();
-                    // $button_text = get_sub_field('button_text', 'option');
-                    // $button_link = get_sub_field('button_link', 'option');
                     $phone_number = get_sub_field('phone_number', 'option');
                     ?>
-                    <!-- <a href="<?php // echo $button_link; ?>" class="btn-brown"><?php // echo $button_text; ?></a> -->
                     <a href="tel:+<?php echo $phone_number; ?>" class="dashed phone-number"><?php echo $phone_number; ?></a>
                     <?php
                 endwhile;
@@ -86,7 +83,7 @@
                         $social_media_image = get_sub_field('social_media_image', 'option');
                         $social_media_link = get_sub_field('social_media_link', 'option');
                         ?>
-                        <a href="<?php echo $social_media_link; ?>"><img src="<?php echo $social_media_image; ?>" alt=""></a>
+                        <a href="<?php echo $social_media_link; ?>" target="_blank"><img src="<?php echo $social_media_image; ?>" alt=""></a>
                         <?php
                     endwhile;
                     else :

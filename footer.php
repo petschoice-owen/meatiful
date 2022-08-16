@@ -5,7 +5,7 @@
                     while( have_rows('social_media_item', 'option') ) : the_row();
                         $social_media_image = get_sub_field('social_media_image', 'option');
                         $social_media_link = get_sub_field('social_media_link', 'option'); ?>
-                        <a href="<?php echo $social_media_link; ?>"><img src="<?php echo $social_media_image; ?>" alt=""></a>
+                        <a href="<?php echo $social_media_link; ?>" target="_blank"><img src="<?php echo $social_media_image; ?>" alt=""></a>
                         <?php
                     endwhile;
                 else :
