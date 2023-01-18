@@ -203,60 +203,60 @@ add_action( 'init', 'create_news_cpt', 0 );
 /* Register Custom Post Type Stockists
 /*-----------------------------------------------------------------------------------*/
 // Register Custom Post Type Stockist
-function create_stockist_cpt() {
-	$labels = array(
-		'name' => _x( 'Stockists', 'Post Type General Name', 'textdomain' ),
-		'singular_name' => _x( 'Stockist', 'Post Type Singular Name', 'textdomain' ),
-		'menu_name' => _x( 'Stockists', 'Admin Menu text', 'textdomain' ),
-		'name_admin_bar' => _x( 'Stockist', 'Add New on Toolbar', 'textdomain' ),
-		'archives' => __( 'Stockist Archives', 'textdomain' ),
-		'attributes' => __( 'Stockist Attributes', 'textdomain' ),
-		'parent_item_colon' => __( 'Parent Stockist:', 'textdomain' ),
-		'all_items' => __( 'All Stockists', 'textdomain' ),
-		'add_new_item' => __( 'Add New Stockist', 'textdomain' ),
-		'add_new' => __( 'Add New', 'textdomain' ),
-		'new_item' => __( 'New Stockist', 'textdomain' ),
-		'edit_item' => __( 'Edit Stockist', 'textdomain' ),
-		'update_item' => __( 'Update Stockist', 'textdomain' ),
-		'view_item' => __( 'View Stockist', 'textdomain' ),
-		'view_items' => __( 'View Stockists', 'textdomain' ),
-		'search_items' => __( 'Search Stockist', 'textdomain' ),
-		'not_found' => __( 'Not found', 'textdomain' ),
-		'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
-		'featured_image' => __( 'Featured Image', 'textdomain' ),
-		'set_featured_image' => __( 'Set featured image', 'textdomain' ),
-		'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
-		'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
-		'insert_into_item' => __( 'Insert into Stockist', 'textdomain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Stockist', 'textdomain' ),
-		'items_list' => __( 'Stockists list', 'textdomain' ),
-		'items_list_navigation' => __( 'Stockists list navigation', 'textdomain' ),
-		'filter_items_list' => __( 'Filter Stockists list', 'textdomain' ),
-	);
-	$args = array(
-		'label' => __( 'Stockist', 'textdomain' ),
-		'description' => __( '', 'textdomain' ),
-		'labels' => $labels,
-		'menu_icon' => 'dashicons-location',
-		'supports' => array('title', 'thumbnail', 'revisions', 'custom-fields', 'author', 'revisions'),
-		'taxonomies' => array(),
-		'public' => true,
-		'show_ui' => true,
-		'show_in_menu' => true,
-		'menu_position' => 5,
-		'show_in_admin_bar' => true,
-		'show_in_nav_menus' => true,
-		'can_export' => true,
-		'has_archive' => false,
-		'hierarchical' => false,
-		'exclude_from_search' => false,
-		'show_in_rest' => true,
-		'publicly_queryable' => true,
-		'capability_type' => 'post',
-	);
-	register_post_type( 'stockists', $args );
-}
-add_action( 'init', 'create_stockist_cpt', 0 );
+// function create_stockist_cpt() {
+// 	$labels = array(
+// 		'name' => _x( 'Stockists', 'Post Type General Name', 'textdomain' ),
+// 		'singular_name' => _x( 'Stockist', 'Post Type Singular Name', 'textdomain' ),
+// 		'menu_name' => _x( 'Stockists', 'Admin Menu text', 'textdomain' ),
+// 		'name_admin_bar' => _x( 'Stockist', 'Add New on Toolbar', 'textdomain' ),
+// 		'archives' => __( 'Stockist Archives', 'textdomain' ),
+// 		'attributes' => __( 'Stockist Attributes', 'textdomain' ),
+// 		'parent_item_colon' => __( 'Parent Stockist:', 'textdomain' ),
+// 		'all_items' => __( 'All Stockists', 'textdomain' ),
+// 		'add_new_item' => __( 'Add New Stockist', 'textdomain' ),
+// 		'add_new' => __( 'Add New', 'textdomain' ),
+// 		'new_item' => __( 'New Stockist', 'textdomain' ),
+// 		'edit_item' => __( 'Edit Stockist', 'textdomain' ),
+// 		'update_item' => __( 'Update Stockist', 'textdomain' ),
+// 		'view_item' => __( 'View Stockist', 'textdomain' ),
+// 		'view_items' => __( 'View Stockists', 'textdomain' ),
+// 		'search_items' => __( 'Search Stockist', 'textdomain' ),
+// 		'not_found' => __( 'Not found', 'textdomain' ),
+// 		'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
+// 		'featured_image' => __( 'Featured Image', 'textdomain' ),
+// 		'set_featured_image' => __( 'Set featured image', 'textdomain' ),
+// 		'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
+// 		'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
+// 		'insert_into_item' => __( 'Insert into Stockist', 'textdomain' ),
+// 		'uploaded_to_this_item' => __( 'Uploaded to this Stockist', 'textdomain' ),
+// 		'items_list' => __( 'Stockists list', 'textdomain' ),
+// 		'items_list_navigation' => __( 'Stockists list navigation', 'textdomain' ),
+// 		'filter_items_list' => __( 'Filter Stockists list', 'textdomain' ),
+// 	);
+// 	$args = array(
+// 		'label' => __( 'Stockist', 'textdomain' ),
+// 		'description' => __( '', 'textdomain' ),
+// 		'labels' => $labels,
+// 		'menu_icon' => 'dashicons-location',
+// 		'supports' => array('title', 'thumbnail', 'revisions', 'custom-fields', 'author', 'revisions'),
+// 		'taxonomies' => array(),
+// 		'public' => true,
+// 		'show_ui' => true,
+// 		'show_in_menu' => true,
+// 		'menu_position' => 5,
+// 		'show_in_admin_bar' => true,
+// 		'show_in_nav_menus' => true,
+// 		'can_export' => true,
+// 		'has_archive' => false,
+// 		'hierarchical' => false,
+// 		'exclude_from_search' => false,
+// 		'show_in_rest' => true,
+// 		'publicly_queryable' => true,
+// 		'capability_type' => 'post',
+// 	);
+// 	register_post_type( 'stockists', $args );
+// }
+// add_action( 'init', 'create_stockist_cpt', 0 );
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -349,7 +349,7 @@ function woo_cart_but() {
 	$cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
 	$cart_url = wc_get_cart_url();  // Set Cart URL ?>
 
-	<a class="menu-item cart-contents cart" href="<?php echo $cart_url; ?>" title="My Basket">
+	<a class="menu-item cart-contents cart" href="<?php echo $cart_url; ?>" title="View Cart">
 		<?php if ( $cart_count > 0 ) { ?>
 			<span class="cart-contents-count"><?php echo $cart_count; ?></span>
 		<?php } ?>
@@ -366,7 +366,7 @@ function woo_cart_but_count( $fragments ) {
     $cart_count = WC()->cart->cart_contents_count;
     $cart_url = wc_get_cart_url(); ?>
 
-    <a class="cart-contents menu-item cart" href="<?php echo $cart_url; ?>" title="My Basket">
+    <a class="cart-contents menu-item cart" href="<?php echo $cart_url; ?>" title="View Cart">
 		<?php if ( $cart_count > 0 ) { ?>
 			<span class="cart-contents-count"><?php echo $cart_count; ?></span>
 		<?php } ?>
@@ -404,3 +404,18 @@ function my_hide_shipping_when_free_is_available( $rates ) {
 	return ! empty( $free ) ? $free : $rates;
 }
 add_filter( 'woocommerce_package_rates', 'my_hide_shipping_when_free_is_available', 100 );
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* Remove Yoast SEO Canonical Meta Tag
+/*-----------------------------------------------------------------------------------*/
+add_filter( 'wpseo_canonical', 'remove_multiple_yoast_meta_tags' );
+
+function remove_multiple_yoast_meta_tags( $removeCanonical ) {
+    if ( is_page () || is_single() || is_singular() || is_product() || is_product_category() || is_category() || is_tax() ) {
+        return false;
+    }
+	
+    return $removeCanonical;
+}

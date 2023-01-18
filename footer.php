@@ -21,5 +21,6 @@
         </div>
     </div>
     <?php wp_footer(); ?>
+	<script type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=UjgeTP" ></script>
 </body>
 </html>

@@ -40,6 +40,7 @@ var customSlider = () => {
             prevArrow: false,
             nextArrow: false,
             swipe: false,
+			pauseOnHover: false,
             adaptiveHeight: true,
         });
     }  

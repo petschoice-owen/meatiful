@@ -15,3 +15,27 @@ Text Domain:    meatiful
 .cmplz-document summary .cmplz-category-header .cmplz-always-active {
     margin-bottom: 0;
 }
+
+.grecaptcha-badge {
+	display: none !important;
+}
+
+.page-template-page-contact .grecaptcha-badge {
+	display: block !important
+}
+
+.woocommerce-cart .coupon #coupon_code {
+	width: 130px !important;
+	height: 46px !important;
+}
+@media (max-width: 991px) {
+	.woocommerce-cart .coupon #coupon_code {
+		height: 44px !important;
+	}
+}	
+@media (max-width: 767px) {
+	.woocommerce-cart .coupon #coupon_code {
+		width: 48% !important;
+		height: 36px !important;
+	}		
+}
