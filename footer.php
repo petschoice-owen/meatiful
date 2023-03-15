@@ -1,5 +1,5 @@
     <div class="footer-main">
-        <div class="container">
+        <div class="container">           
             <div class="social">
                 <?php if( have_rows('social_media_item', 'option') ):
                     while( have_rows('social_media_item', 'option') ) : the_row();
@@ -12,6 +12,13 @@
                 endif; ?>
             </div>
             <div class="copyright">
+                <?php 
+                    if( get_field('newsletter_display', 'option') == 'show' ) { ?>
+                        <div class="newsletter">
+                            <a href="<?php the_field('newsletter_url', 'option'); ?>" class="newsletter-button"><?php the_field('newsletter_text', 'option'); ?></a>
+                        </div>
+                    <?php }
+                ?> 
                 <p><?php the_field('copyright_text', 'option'); ?></p>
                 <?php wp_nav_menu( array( 
                     'theme_location'    => 'footer_menu', 

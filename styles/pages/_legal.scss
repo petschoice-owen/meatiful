@@ -163,6 +163,28 @@
             }
         }
 
+        .klaviyo-form {
+            max-width: 600px;
+            margin: auto;
+
+            form.klaviyo-form [data-testid=form-row] {
+                margin-bottom: 0;
+
+                &:nth-child(2) p {
+                    margin-top: 10px;
+                    line-height: 1.1;
+                }
+
+                [data-testid=form-component] {
+                    margin-bottom: 0;
+
+                    div.needsclick input {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
         @media (max-width: 1399px) {
             .wrapper {
                 top: -60px;
