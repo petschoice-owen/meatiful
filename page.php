@@ -35,9 +35,6 @@
                                     if ( get_the_content() ) {
                                         the_content();
                                     }
-                                    else {
-                                        echo "<h1>There is no content for this page.</h1>";
-                                    }
                                 ?>
                             <?php endwhile; ?>
                         <?php else : ?>

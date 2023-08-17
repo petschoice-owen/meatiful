@@ -28,6 +28,21 @@ Text Domain:    meatiful
 	width: 130px !important;
 	height: 46px !important;
 }
+
+.footer-main .copyright li {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.ppc-button-wrapper {
+	text-align: center;
+}
+
+.home section.featured .heading + p {
+	text-align: center;
+}
+
 @media (max-width: 991px) {
 	.woocommerce-cart .coupon #coupon_code {
 		height: 44px !important;
