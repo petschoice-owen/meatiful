@@ -140,3 +140,14 @@ input[type="text"] {
         border-left: 16px solid #fff;
     }
 }
+
+// Complianz - category title adjustments
+.cmplz-document summary .cmplz-category-header .cmplz-category-title,
+.cmplz-document summary .cmplz-category-header .cmplz-always-active {
+    margin-bottom: 0;
+}
+
+// Google reCpatcha - hide on all pages
+.grecaptcha-badge {
+	display: none !important;
+}

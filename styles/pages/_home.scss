@@ -74,6 +74,10 @@
         background-repeat: repeat-y;
         background-size: cover;
         background-repeat: repeat-y;
+
+        .heading + p {
+            text-align: center;
+        }
         
         .button-top {
             position: absolute;

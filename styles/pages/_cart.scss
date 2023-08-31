@@ -1,0 +1,84 @@
+//main: ../main.scss
+
+// -------------------------------------------------------------------------------------------
+// This file contains styles that are specific to the cart page.
+// -------------------------------------------------------------------------------------------
+
+.woocommerce-cart .page-default {
+    .coupon #coupon_code {
+        width: 130px !important;
+        height: 46px !important;
+    }
+
+    .ppc-button-wrapper {
+        text-align: center;
+    }
+
+    .woocommerce-notices-wrapper,
+    .woocommerce-notices-wrapper .woocommerce-info {
+        display: none;
+    }
+
+    .restricted-message-wrapper {
+        display: none !important;
+        float: right;
+        width: 53%;
+    }
+
+    .restricted-message {
+        width: 90.5%;
+        margin-left: auto;
+        padding: 15px;
+        color: #fff;
+        background: #96302f;
+    }
+
+    @media (max-width: 1199px) {
+        .restricted-message {
+            width: 94%;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .coupon #coupon_code {
+            height: 44px !important;
+        }
+
+        .restricted-message-wrapper,
+        .restricted-message {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .coupon #coupon_code {
+            width: 48% !important;
+            height: 36px !important;
+        }	
+
+        .restricted-message-wrapper {
+            float: none;
+            width: 100%;
+            margin-top: 15px;
+        }
+        
+        .restricted-message {
+            font-size: 14px;
+        }
+    }
+}
+
+.restricted-zone.woocommerce-cart .page-default {
+    .woocommerce-notices-wrapper,
+    .woocommerce-shipping-methods,
+    .woocommerce-shipping-destination,
+    .order-total,
+    .wc-proceed-to-checkout {
+        display: none !important;
+    }
+
+    .woocommerce .cart-collaterals .restricted-message-wrapper,
+    .woocommerce .cart-collaterals .restricted-message {
+        display: block !important;
+    }
+}
