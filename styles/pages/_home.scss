@@ -51,6 +51,7 @@
         .slider-padding {
             padding-top: 155px;
             padding-bottom: 110px;
+            min-height: 600px;
         }
     
         .hero-background {
@@ -64,6 +65,34 @@
     
         .button-holder {
             margin-top: 22px;
+        }
+
+        .content-mobile {
+            .heading,
+            .subheading,
+            p {
+                display: none;
+            }
+        }
+
+        .content-hidden {
+            .heading,
+            .subheading,
+            p {
+                display: none;
+            }
+        }
+
+        .button-mobile {
+            .button-holder {
+                display: none;
+            }
+        }
+
+        .button-hidden {
+            .button-holder {
+                display: none;
+            }
         }
     }
   
@@ -345,6 +374,34 @@
                 background-size: cover;
                 background-position: top;
                 background-repeat: no-repeat;
+            }
+
+            .content-desktop {
+                .heading,
+                .subheading,
+                p {
+                    display: none;
+                }
+            }
+
+            .content-mobile {
+                .heading,
+                .subheading,
+                p {
+                    display: block;
+                }
+            }
+    
+            .button-desktop {
+                .button-holder {
+                    display: none;
+                }
+            }
+    
+            .button-mobile {
+                .button-holder {
+                    display: block;
+                }
             }
         }
     

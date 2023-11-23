@@ -40,11 +40,13 @@
                                 $heading = get_sub_field('heading');
                                 $subheading = get_sub_field('subheading'); 
                                 $description = get_sub_field('description');
+                                $content_visibility = get_sub_field('content_visibility');
+                                $button_visibility = get_sub_field('button_visibility');
                                 $button_text = get_sub_field('button_text');
                                 $button_link = get_sub_field('button_link');
                                 $background_image = get_sub_field('background_image');?>
 
-                                <div class="slide-item slider-padding">
+                                <div class="slide-item slider-padding content-<?php echo $content_visibility; ?> button-<?php echo $button_visibility; ?>">
                                     <div class="slide-item-background" style="background-image: url(<?php echo $background_image; ?>);"></div>
                                     <div class="container">
                                         <div class="wrapper">
