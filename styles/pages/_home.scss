@@ -293,6 +293,7 @@
             .slider-padding {
                 padding-top: 120px;
                 padding-bottom: 80px;
+                min-height: 560px;
             }
         }
     
@@ -362,6 +363,10 @@
         .hero-parallax {
             .slide-item-background {
                 display: none;
+            }
+            
+            .slider-padding {
+                min-height: unset;
             }
     
             .hero-background {
