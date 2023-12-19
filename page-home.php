@@ -44,20 +44,34 @@
                                 $button_visibility = get_sub_field('button_visibility');
                                 $button_text = get_sub_field('button_text');
                                 $button_link = get_sub_field('button_link');
-                                $background_image = get_sub_field('background_image');?>
+                                $background_image = get_sub_field('background_image'); ?>
 
                                 <div class="slide-item slider-padding content-<?php echo $content_visibility; ?> button-<?php echo $button_visibility; ?>">
                                     <div class="slide-item-background" style="background-image: url(<?php echo $background_image; ?>);"></div>
-                                    <div class="container">
-                                        <div class="wrapper">
-                                            <h1 class="heading"><?php echo $heading; ?></h1>
-                                            <h3 class="subheading"><?php echo $subheading; ?></h3>
-                                            <p><?php echo $description; ?></p>
-                                            <div class="button-holder">
-                                                <a href="<?php echo $button_link; ?>" class="btn-brown arrow-right"><?php echo $button_text; ?></a>
+                                    <?php if( get_sub_field('hero_mobile_banner') ): ?>
+                                        <div class="container container-image">
+                                            <img src="<?php the_sub_field('hero_mobile_banner'); ?>" class="mobile-banner" alt="" />
+                                            <div class="wrapper">
+                                                <h1 class="heading"><?php echo $heading; ?></h1>
+                                                <h3 class="subheading"><?php echo $subheading; ?></h3>
+                                                <p><?php echo $description; ?></p>
+                                                <div class="button-holder">
+                                                    <a href="<?php echo $button_link; ?>" class="btn-brown arrow-right"><?php echo $button_text; ?></a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php else: ?>
+                                        <div class="container container-content">
+                                            <div class="wrapper">
+                                                <h1 class="heading"><?php echo $heading; ?></h1>
+                                                <h3 class="subheading"><?php echo $subheading; ?></h3>
+                                                <p><?php echo $description; ?></p>
+                                                <div class="button-holder">
+                                                    <a href="<?php echo $button_link; ?>" class="btn-brown arrow-right"><?php echo $button_text; ?></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             <?php endwhile; ?>
                         <?php else :

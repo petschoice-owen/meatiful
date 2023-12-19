@@ -675,13 +675,15 @@
         }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 782px) {
         top: 46px;
 
         .free-delivery {
             top: 114px; 
         }
+    }
 
+    @media (max-width: 767px) {
         &.scrolled {
             top: 0;
 
