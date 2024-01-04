@@ -199,7 +199,8 @@
         top: 0;
         right: 13px;
         z-index: 2;
-        width: 130px;
+        // width: 130px;
+        width: 160px;
         box-shadow: 0 2px 7px 0 rgba(0,0,0,.5);
         transition: .35s ease-in-out all;
     
@@ -391,7 +392,7 @@
             transition: .35s ease-in-out all;
         }
     }
-  
+    
     @media (max-width: 1599px) {
         .nav-item,
         .menu-item {

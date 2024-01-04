@@ -60,12 +60,20 @@
         position: relative;
     }
 
+    .wrapper {
+        padding-top: 100px;
+    }
+
     @media (max-width: 1399px) {
         padding: 100px 0;
     }
 
     @media (max-width: 1199px) {
         padding: 80px 0;
+
+        .wrapper {
+            padding-top: 90px;
+        }
 
         .heading.dashed {
             margin-bottom: 45px;
