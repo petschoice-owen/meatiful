@@ -104,12 +104,58 @@ var parallaxMargin = () => {
 }
   
 // masonry function
+function checkForOverlappingItems() {
+  const items = document.querySelectorAll('.grid-item');
+  
+  // Loop through items and check their positions
+  for (let i = 0; i < items.length - 1; i++) {
+    const currentItem = items[i];
+    const nextItem = items[i + 1];
+    
+    // Get bounding boxes of the two elements
+    const currentRect = currentItem.getBoundingClientRect();
+    const nextRect = nextItem.getBoundingClientRect();
+    
+    // Check if the items are vertically overlapping
+    if (currentRect.bottom > nextRect.top && currentRect.top < nextRect.bottom) {
+      return true;
+    }
+  }
+  
+  return false; // No overlap detected
+}
+function checkLayoutOnScroll($grid) {
+  if (checkForOverlappingItems()) {
+    $grid.masonry('layout');
+  } else {
+  }
+}
+// Debounce function to limit the rate at which layout recalculation happens
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(function() {
+      func.apply(context, args);
+    }, wait);
+  };
+}
 var masonry = () => {
     if ($(".masonry .grid-item").length) {
-        $('.grid').masonry({
+        var $grid = $('.grid').masonry({
             itemSelector: '.grid-item',
+			percentPosition: true,
+			fitWidth: true
         });
-    }  
+		$grid.imagesLoaded().progress( function() {
+			$grid.masonry('layout');
+		});
+		window.addEventListener('scroll', debounce(function() {
+		  checkLayoutOnScroll($grid); // Check and fix layout on scroll
+		}, 200));
+	}  
 }
 
 // product form show on load
@@ -428,8 +474,9 @@ $(document).ready(function() {
 $(window).resize(function() {
     // parallaxMargin();
     productTabs();
-
-    $('.custom-slider')[0].slick.refresh();
+	if($('.custom-slider').length > 0) {
+		$('.custom-slider')[0].slick.refresh();
+	}
 });
   
 window.onload = function() {

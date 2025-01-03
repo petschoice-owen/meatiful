@@ -33,7 +33,7 @@
                                 <div class="grid-item">
                                     <a href="<?php the_permalink(); ?>" class="item-link">
                                         <div class="image-holder">
-                                            <img src="<?php echo $featured_img[0]; ?>" alt="<?php the_title(); ?>" />
+                                            <img src="<?php echo $featured_img[0]; ?>" alt="<?php the_title(); ?>" class="no-lazy" />
                                         </div>
                                         <div class="content-holder">
                                             <h4 class="title"><?php the_title(); ?></h4>

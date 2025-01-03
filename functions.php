@@ -72,7 +72,8 @@ function theme_scripts()  {
 	wp_enqueue_script('popper', get_template_directory_uri() . '/scripts/vendors/popper.min.js');
 	wp_enqueue_script('bootstrap', get_template_directory_uri() . '/scripts/vendors/bootstrap.min.js');
 	wp_enqueue_script('slick', get_template_directory_uri() . '/scripts/vendors/slick.min.js');
-	wp_enqueue_script('masonry', get_template_directory_uri() . '/scripts/vendors/masonry.pkgd.min.js');
+	wp_enqueue_script('imagesloaded', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js', array(), '', array( 'strategy' => 'async', 'in_footer' => true ));
+	wp_enqueue_script('masonry', get_template_directory_uri() . '/scripts/vendors/masonry.pkgd.min.js', array(), '', array( 'strategy' => 'async', 'in_footer' => true ));
 	wp_enqueue_script('custom-script', get_template_directory_uri() . '/scripts/script.js');
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header
@@ -419,3 +420,100 @@ function remove_multiple_yoast_meta_tags( $removeCanonical ) {
 	
     return $removeCanonical;
 }
+
+
+/*----------------------------------------------------------------------------------------*/
+/* WooCommerce Cart Page - set minimum order amount to £10 and maximum order amount to £250
+/*----------------------------------------------------------------------------------------*/
+add_action( 'woocommerce_checkout_process', 'wc_min_max_order_amount' );
+add_action( 'woocommerce_before_cart' , 'wc_min_max_order_amount' );
+
+function wc_min_max_order_amount() {
+    $minimum = 10; // set this variable to specify a minimum order value
+    $maximum = 250; // set this variable to specify a maximum order value
+    $cart_total = WC()->cart->total; // cart total including shipping
+    $shipping_total = WC()->cart->get_shipping_total();  // cost of shipping
+    $cart_subtotal = WC()->cart->subtotal;  // cart total excluding shipping
+
+    if ( ($cart_total - $shipping_total) < $minimum ) {
+        if( is_cart() ) {
+            wc_print_notice( 
+                sprintf( 'Your current order total is %s — you must have an order with a minimum of %s to place your order' , 
+                    wc_price( $cart_subtotal ), 
+                    wc_price( $minimum )
+                ), 'error' 
+            );
+            // JavaScript to hide the element with class "wc-proceed-to-checkout"
+            ?>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function() {
+                    var proceedToCheckout = document.querySelector('.wc-proceed-to-checkout');
+                    if (proceedToCheckout) {
+                        proceedToCheckout.style.display = 'none';
+                    }
+                });
+            </script>
+            <?php
+        } else {
+            wc_add_notice( 
+                sprintf( 'Your current order total is %s — you must have an order with a minimum of %s to place your order' , 
+                    wc_price( $cart_subtotal ), 
+                    wc_price( $minimum )
+                ), 'error' 
+            );
+            // JavaScript to hide the element with class "wc-proceed-to-checkout"
+            ?>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function() {
+                    var proceedToCheckout = document.querySelector('.wc-proceed-to-checkout');
+                    if (proceedToCheckout) {
+                        proceedToCheckout.style.display = 'none';
+                    }
+                });
+            </script>
+            <?php
+        }
+    }
+
+    elseif ( ($cart_total - $shipping_total) > $maximum ) {
+        if( is_cart() ) {
+            wc_print_notice( 
+                sprintf( 'Your order value is %s. We do not currently accept online order values of over %s.' , 
+                    wc_price( $cart_subtotal ), 
+                    wc_price( $maximum )
+                ), 'error' 
+            );
+            // JavaScript to hide the element with class "wc-proceed-to-checkout"
+            ?>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function() {
+                    var proceedToCheckout = document.querySelector('.wc-proceed-to-checkout');
+                    if (proceedToCheckout) {
+                        proceedToCheckout.style.display = 'none';
+                    }
+                });
+            </script>
+            <?php
+        } else {
+            wc_add_notice( 
+                sprintf( 'Your order value is %s. We do not currently accept online order values of over %s.' , 
+                    wc_price( $cart_subtotal ), 
+                    wc_price( $maximum )
+                ), 'error' 
+            );
+            // JavaScript to hide the element with class "wc-proceed-to-checkout"
+            ?>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function() {
+                    var proceedToCheckout = document.querySelector('.wc-proceed-to-checkout');
+                    if (proceedToCheckout) {
+                        proceedToCheckout.style.display = 'none';
+                    }
+                });
+            </script>
+            <?php
+        }
+    }
+}
+
+add_action( 'woocommerce_cart_item_removed' , 'wc_min_max_order_amount', 10, 2 );

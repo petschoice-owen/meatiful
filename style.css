@@ -11,46 +11,110 @@ Text Domain:    meatiful
 */
 
 
-.cmplz-document summary .cmplz-category-header .cmplz-category-title,
-.cmplz-document summary .cmplz-category-header .cmplz-always-active {
-    margin-bottom: 0;
+/* Terms Page */
+.page-default .holder li {
+    font-size: 15px;
 }
 
-.grecaptcha-badge {
-	display: none !important;
+
+/* Cart Page - checkout button */
+.wc-proceed-to-checkout {
+    display: none;
 }
 
-.page-template-page-contact .grecaptcha-badge {
-	display: block !important
+
+/* Checkout Page - Discount Section */
+/*
+    .woocommerce-checkout #order_review .woocommerce-checkout-review-order-table .cart-discount {
+        background-color: #96302f;
+    }
+    .woocommerce-checkout #order_review .woocommerce-checkout-review-order-table .cart-discount th,
+    .woocommerce-checkout #order_review .woocommerce-checkout-review-order-table .cart-discount td {
+        color: #fff;
+    }
+    .woocommerce-checkout #order_review .woocommerce-checkout-review-order-table .cart-discount a {
+        color: #e9e6ed;
+    }
+    .woocommerce-checkout #order_review .woocommerce-checkout-review-order-table .cart-discount a:hover {
+        opacity: .5;
+    }
+*/
+
+
+/* Checkout Page - Free Shipping - remove if empty */
+.devnet_fsl-free-shipping:empty {
+	display: none;
 }
 
-.woocommerce-cart .coupon #coupon_code {
-	width: 130px !important;
-	height: 46px !important;
+/* Checkout Page - Min Max error */
+.woocommerce-checkout.woocommerce-page.min-max-show .woocommerce-checkout-payment,
+.woocommerce-checkout.woocommerce-page.min-max-show .ppc-button-wrapper {
+    display: none;
+}
+.min-max-error {
+    display: none;
+}
+.min-max-error-show {
+    display: block;
+}
+.min-max-message {
+    padding: 15px;
+    margin: 20px 0 0;
+    color: #fff !important;
+    background: #96302f;
 }
 
-.footer-main .copyright li {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+/* Product Pages - add to stylesheet */
+.hero-product .wrapper {
+    padding-top: 100px;
 }
 
-.ppc-button-wrapper {
-	text-align: center;
+.masonry .grid {
+    display: flex;
+	flex-wrap: wrap;
+}
+.masonry .image-holder img {
+	min-height: 190px;
 }
 
-.home section.featured .heading + p {
-	text-align: center;
+button {
+    line-height: 1;
+    border: 0;
 }
 
-@media (max-width: 991px) {
-	.woocommerce-cart .coupon #coupon_code {
-		height: 44px !important;
-	}
-}	
+@media (max-width: 1199px) {
+    .hero-product .wrapper {
+        padding-top: 90px;
+    }
+}
+
+/* Mobile - nav menu change background color */
 @media (max-width: 767px) {
-	.woocommerce-cart .coupon #coupon_code {
-		width: 48% !important;
-		height: 36px !important;
-	}		
+    .top-navigation .navbar-collapse {
+        background: #65493d;
+    }
+}
+
+/* Mobile - remove secondary background on content area  */
+@media (max-width: 767px) {
+    .page-varieties section.products .products-wrapper {
+        background: transparent !important;
+    }
+    .page-varieties section.products .product-items {
+        padding: 10px 0;
+    }
+    .page-varieties section.products .products-wrapper .product-wrapper {
+        -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,.1);
+        box-shadow: 0 2px 10px 1px rgba(0,0,0,.1);
+    }
+    .page-legal section.content .wrapper,
+    .page-default section.content .wrapper {
+        padding: 35px 15px;
+        background: transparent !important;
+    }
+    .page-legal section.content .wrapper .holder,
+    .page-default section.content .wrapper .holder {
+        -webkit-box-shadow: 0 2px 10px 1px rgba(0,0,0,.1);
+        box-shadow: 0 2px 10px 1px rgba(0,0,0,.1);
+    }
 }
